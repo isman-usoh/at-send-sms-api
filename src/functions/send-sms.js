@@ -1,6 +1,5 @@
 // @ts-check
 const net = require('net');
-const delay = exec => setTimeout(exec, 1000)
 
 export async function sendSms(to, msg, host = '192.168.1.1', post = 8091) {
     return new Promise((resolve,  reject) => {
@@ -10,7 +9,7 @@ export async function sendSms(to, msg, host = '192.168.1.1', post = 8091) {
             setTimeout(function(){
                 client.write('AT+CMGF=1\r')
                 setTimeout(function(){
-                    client.write(`AT+CMGS=\"${to}\"\r`)
+                    client.write('AT+CMGS=\"' + to + '\"\r')
                     setTimeout(function(){
                         client.write(msg + '\r')
                         setTimeout(function(){
