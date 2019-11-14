@@ -15,7 +15,7 @@ export async function sendSms(to, msg, host = '192.168.1.1', post = 8091) {
                         setTimeout(function(){
                             client.write(new Buffer[0x1a]);
                             client.write('\x1A')
-                            client.close();
+                            client.destroy()
                         }, 4000);
                     }, 4000);
                 }, 4000);
